@@ -20,6 +20,8 @@ import java.util.Map;
  */
 public class BaseController {
 
+    public static final String CONTENT_TYPE_FORMED = "application/x-www-form-urlencoded";
+
     /**
      * 定义exceptionhandler解决未被controller层吸收的exception
      *

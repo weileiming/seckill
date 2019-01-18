@@ -9,9 +9,7 @@ import me.willwei.seckill.service.model.UserModel;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Random;
@@ -24,6 +22,7 @@ import java.util.Random;
  */
 @Controller("user")
 @RequestMapping("/user")
+@CrossOrigin
 public class UserController extends BaseController {
 
     @Autowired
@@ -38,13 +37,13 @@ public class UserController extends BaseController {
      * @param telephone
      * @return
      */
-    @RequestMapping("/getotp")
+    @RequestMapping(value = "/getotp", method = {RequestMethod.POST}, consumes = {CONTENT_TYPE_FORMED})
     @ResponseBody
     public CommonReturnType getOtp(@RequestParam(name = "telephone") String telephone) {
         // 需要按照一定的规则生成OTP验证码
         Random random = new Random();
-        int randomInt = random.nextInt(99999);
-        randomInt += 10000;
+        int randomInt = random.nextInt(899999);
+        randomInt += 100000;
         String otpCode = String.valueOf(randomInt);
 
         // 将OTP验证码同对应用户的手机号关联，使用httpsession的方式绑定他的手机号与OTPCODE
