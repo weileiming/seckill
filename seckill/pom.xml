@@ -51,6 +51,13 @@
             <version>3.8.1</version>
         </dependency>
 
+         <!--https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator-->
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>6.0.14.Final</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
