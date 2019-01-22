@@ -27,4 +27,14 @@ public interface UserService {
      */
     void register(UserModel userModel) throws BusinessException;
 
+    /**
+     * 用户登录
+     *
+     * @param telephone
+     * @param encryptPassword
+     * @return
+     * @throws BusinessException
+     */
+    UserModel validateLogin(String telephone, String encryptPassword) throws BusinessException;
+
 }
