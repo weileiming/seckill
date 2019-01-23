@@ -11,11 +11,36 @@
  Target Server Version : 50724
  File Encoding         : 65001
 
- Date: 18/01/2019 18:15:55
+ Date: 23/01/2019 17:52:07
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for item
+-- ----------------------------
+DROP TABLE IF EXISTS `item`;
+CREATE TABLE `item` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(64) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `price` decimal(10,2) NOT NULL DEFAULT '0.00',
+  `description` varchar(500) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `sales` int(11) NOT NULL DEFAULT '0',
+  `img_url` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
+-- Table structure for item_stock
+-- ----------------------------
+DROP TABLE IF EXISTS `item_stock`;
+CREATE TABLE `item_stock` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `stock` int(11) NOT NULL DEFAULT '0',
+  `item_id` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Table structure for user_info
@@ -29,8 +54,9 @@ CREATE TABLE `user_info` (
   `telephone` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `register_mode` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '//byphone,bywechat,byalipay',
   `third_party_id` varchar(64) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `telephone_unique_index` (`telephone`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Table structure for user_password
@@ -41,6 +67,6 @@ CREATE TABLE `user_password` (
   `encrypt_password` varchar(128) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `user_id` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 SET FOREIGN_KEY_CHECKS = 1;
