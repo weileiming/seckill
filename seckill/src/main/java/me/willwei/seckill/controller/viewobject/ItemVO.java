@@ -1,5 +1,8 @@
 package me.willwei.seckill.controller.viewobject;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.math.BigDecimal;
 
 /**
@@ -8,6 +11,8 @@ import java.math.BigDecimal;
  * @author leiming
  * @date 2019/1/23
  */
+@Setter
+@Getter
 public class ItemVO {
 
     /**

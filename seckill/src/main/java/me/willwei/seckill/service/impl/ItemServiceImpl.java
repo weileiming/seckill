@@ -50,8 +50,8 @@ public class ItemServiceImpl implements ItemService {
 
         // 写入数据库
         this.itemDOMapper.insertSelective(itemDO);
-        itemModel.setId(itemDO.getId());
 
+        itemStockDO.setItemId(itemDO.getId());
         this.itemStockDOMapper.insertSelective(itemStockDO);
 
         // 返回创建完成的对象
