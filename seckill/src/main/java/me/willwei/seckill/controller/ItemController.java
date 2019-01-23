@@ -26,6 +26,17 @@ public class ItemController extends BaseController {
     @Autowired
     private ItemService itemService;
 
+    /**
+     * 创建商品
+     *
+     * @param title
+     * @param price
+     * @param stock
+     * @param imgUrl
+     * @param description
+     * @return
+     * @throws BusinessException
+     */
     @RequestMapping(value = "/create", method = {RequestMethod.POST}, consumes = {CONTENT_TYPE_FORMED})
     @ResponseBody
     public CommonReturnType createItem(@RequestParam(name = "title") String title,
@@ -43,6 +54,22 @@ public class ItemController extends BaseController {
 
         ItemModel itemModelForReturn = this.itemService.createItem(itemModel);
         ItemVO itemVO = this.convertVOFromModel(itemModelForReturn);
+
+        return CommonReturnType.create(itemVO);
+    }
+
+    /**
+     * 浏览商品详情页
+     *
+     * @param id
+     * @return
+     */
+    @RequestMapping(value = "/get", method = {RequestMethod.GET})
+    @ResponseBody
+    public CommonReturnType getItem(@RequestParam(name = "id") Integer id) {
+        ItemModel itemModel = this.itemService.getItemById(id);
+
+        ItemVO itemVO = this.convertVOFromModel(itemModel);
 
         return CommonReturnType.create(itemVO);
     }
