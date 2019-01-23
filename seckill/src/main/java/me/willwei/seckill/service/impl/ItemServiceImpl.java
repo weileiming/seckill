@@ -44,14 +44,17 @@ public class ItemServiceImpl implements ItemService {
             throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR, validationResult.getErrMsg());
         }
 
+        // itemDO
         // 转化itemModel->dataObject
         ItemDO itemDO = this.convertItemDOFromItemModel(itemModel);
-        ItemStockDO itemStockDO = this.convertItemStockDOFromModel(itemModel);
-
         // 写入数据库
         this.itemDOMapper.insertSelective(itemDO);
 
-        itemStockDO.setItemId(itemDO.getId());
+        // itemStockDO
+        // 转化itemModel->dataObject
+        itemModel.setId(itemDO.getId());
+        ItemStockDO itemStockDO = this.convertItemStockDOFromModel(itemModel);
+        // 写入数据库
         this.itemStockDOMapper.insertSelective(itemStockDO);
 
         // 返回创建完成的对象
