@@ -58,6 +58,14 @@
             <version>6.0.14.Final</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.4</version>
+            <scope>provided</scope>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -102,7 +110,7 @@
                     <!--允许移动生成的文件-->
                     <verbose>true</verbose>
                     <!--允许自动覆盖文件-->
-                    <overwrite>true</overwrite>
+                    <overwrite>false</overwrite>
                     <configurationFile>
                         src/main/resources/mybatis-generator.xml
                     </configurationFile>

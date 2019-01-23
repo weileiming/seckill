@@ -59,5 +59,27 @@
                selectByExampleQueryId="false" >
         </table>
 
+        <table schema="seckill" tableName="item" domainObjectName="ItemDO"
+               enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true"
+               enableDeleteByPrimaryKey="true"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false" >
+        </table>
+
+        <table schema="seckill" tableName="item_stock" domainObjectName="ItemStockDO"
+               enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true"
+               enableDeleteByPrimaryKey="true"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false" >
+        </table>
+
     </context>
 </generatorConfiguration>
