@@ -37,6 +37,7 @@
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
         <!--生成对应表及类名catalog="seckill"-->
+        <!--
         <table schema="seckill" tableName="user_info" domainObjectName="UserDO"
                enableSelectByPrimaryKey="true"
                enableUpdateByPrimaryKey="true"
@@ -71,6 +72,18 @@
         </table>
 
         <table schema="seckill" tableName="item_stock" domainObjectName="ItemStockDO"
+               enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true"
+               enableDeleteByPrimaryKey="true"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false" >
+        </table>
+        -->
+
+        <table schema="seckill" tableName="order_info" domainObjectName="OrderDO"
                enableSelectByPrimaryKey="true"
                enableUpdateByPrimaryKey="true"
                enableDeleteByPrimaryKey="true"

@@ -11,7 +11,7 @@
  Target Server Version : 50724
  File Encoding         : 65001
 
- Date: 23/01/2019 17:52:07
+ Date: 24/01/2019 15:49:44
 */
 
 SET NAMES utf8mb4;
@@ -41,6 +41,20 @@ CREATE TABLE `item_stock` (
   `item_id` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
+-- Table structure for order_info
+-- ----------------------------
+DROP TABLE IF EXISTS `order_info`;
+CREATE TABLE `order_info` (
+  `id` varchar(32) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `user_id` int(11) NOT NULL DEFAULT '0',
+  `item_id` int(11) NOT NULL DEFAULT '0',
+  `item_price` decimal(10,2) NOT NULL DEFAULT '0.00',
+  `amount` int(11) NOT NULL DEFAULT '0',
+  `order_price` decimal(10,2) NOT NULL DEFAULT '0.00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Table structure for user_info
