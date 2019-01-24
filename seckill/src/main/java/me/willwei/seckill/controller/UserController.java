@@ -78,7 +78,7 @@ public class UserController extends BaseController {
      */
     @RequestMapping(value = "/register", method = {RequestMethod.POST}, consumes = {CONTENT_TYPE_FORMED})
     @ResponseBody
-    public CommonReturnType regitter(@RequestParam(name = "telephone") String telephone,
+    public CommonReturnType register(@RequestParam(name = "telephone") String telephone,
                                      @RequestParam(name = "otpCode") String otpCode,
                                      @RequestParam(name = "name") String name,
                                      @RequestParam(name = "gender") Byte gender,

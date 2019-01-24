@@ -1,6 +1,7 @@
 package me.willwei.seckill.dao;
 
 import me.willwei.seckill.dataobject.ItemStockDO;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -54,4 +55,6 @@ public interface ItemStockDOMapper {
      * @mbg.generated Wed Jan 23 16:38:12 CST 2019
      */
     int updateByPrimaryKey(ItemStockDO record);
+
+    int decreaseStock(@Param("itemId") Integer itemId, @Param("amount") Integer amount);
 }

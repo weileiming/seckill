@@ -1,6 +1,7 @@
 package me.willwei.seckill.dao;
 
 import me.willwei.seckill.dataobject.ItemDO;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -56,4 +57,6 @@ public interface ItemDOMapper {
      * @mbg.generated Wed Jan 23 16:38:12 CST 2019
      */
     int updateByPrimaryKey(ItemDO record);
+
+    int increaseSales(@Param("id") Integer id, @Param("amount") Integer amount);
 }
