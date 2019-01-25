@@ -7,7 +7,9 @@ import me.willwei.seckill.dataobject.ItemStockDO;
 import me.willwei.seckill.error.BusinessException;
 import me.willwei.seckill.error.EmBusinessError;
 import me.willwei.seckill.service.ItemService;
+import me.willwei.seckill.service.PromoService;
 import me.willwei.seckill.service.model.ItemModel;
+import me.willwei.seckill.service.model.PromoModel;
 import me.willwei.seckill.validator.ValidationResult;
 import me.willwei.seckill.validator.ValidatorImpl;
 import org.springframework.beans.BeanUtils;
@@ -36,6 +38,9 @@ public class ItemServiceImpl implements ItemService {
 
     @Autowired
     private ItemStockDOMapper itemStockDOMapper;
+
+    @Autowired
+    private PromoService promoService;
 
     @Override
     @Transactional
@@ -86,6 +91,12 @@ public class ItemServiceImpl implements ItemService {
 
         // 将dataObject->model
         ItemModel itemModel = this.convertModelFromDataObject(itemDO, itemStockDO);
+
+        // 获取活动商品信息
+        PromoModel promoModel = this.promoService.getPromoByItemId(itemModel.getId());
+        if (promoModel != null && promoModel.getStatus().intValue() != 3) {
+            itemModel.setPromoModel(promoModel);
+        }
 
         return itemModel;
     }

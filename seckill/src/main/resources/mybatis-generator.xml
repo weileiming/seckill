@@ -92,9 +92,20 @@
                enableSelectByExample="false"
                selectByExampleQueryId="false" >
         </table>
-        -->
 
         <table schema="seckill" tableName="sequence_info" domainObjectName="SequenceDO"
+               enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true"
+               enableDeleteByPrimaryKey="true"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false" >
+        </table>
+        -->
+
+        <table schema="seckill" tableName="promo" domainObjectName="PromoDO"
                enableSelectByPrimaryKey="true"
                enableUpdateByPrimaryKey="true"
                enableDeleteByPrimaryKey="true"

@@ -16,10 +16,11 @@ public interface OrderService {
      *
      * @param userId
      * @param itemId
+     * @param promoId
      * @param amount
      * @return
      * @throws BusinessException
      */
-    OrderModel createOrder(Integer userId, Integer itemId, Integer amount) throws BusinessException;
+    OrderModel createOrder(Integer userId, Integer itemId, Integer promoId, Integer amount) throws BusinessException;
 
 }
