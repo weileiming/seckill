@@ -11,7 +11,7 @@
  Target Server Version : 50724
  File Encoding         : 65001
 
- Date: 24/01/2019 15:49:44
+ Date: 25/01/2019 16:32:08
 */
 
 SET NAMES utf8mb4;
@@ -29,7 +29,7 @@ CREATE TABLE `item` (
   `sales` int(11) NOT NULL DEFAULT '0',
   `img_url` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Table structure for item_stock
@@ -40,7 +40,7 @@ CREATE TABLE `item_stock` (
   `stock` int(11) NOT NULL DEFAULT '0',
   `item_id` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Table structure for order_info
@@ -53,7 +53,33 @@ CREATE TABLE `order_info` (
   `item_price` decimal(10,2) NOT NULL DEFAULT '0.00',
   `amount` int(11) NOT NULL DEFAULT '0',
   `order_price` decimal(10,2) NOT NULL DEFAULT '0.00',
+  `promo_id` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
+-- Table structure for promo
+-- ----------------------------
+DROP TABLE IF EXISTS `promo`;
+CREATE TABLE `promo` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `promo_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `start_date` datetime NOT NULL DEFAULT '1000-01-01 00:00:00',
+  `end_date` datetime NOT NULL DEFAULT '1000-01-01 00:00:00',
+  `item_id` int(11) NOT NULL DEFAULT '0',
+  `promo_item_price` decimal(10,2) NOT NULL DEFAULT '0.00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
+-- Table structure for sequence_info
+-- ----------------------------
+DROP TABLE IF EXISTS `sequence_info`;
+CREATE TABLE `sequence_info` (
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `current_value` int(11) NOT NULL DEFAULT '0',
+  `step` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
